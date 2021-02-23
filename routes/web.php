@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DatosController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,11 +12,16 @@ use App\Http\Controllers\DatosController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-	//return view('welcome');
-	return "Hola mundo";
+    //return view('welcome');
+    return "Hola mundo";
 });
 
-Route::resource('/datos',DatosController::class);
+Route::get('/probando', function () {
+    //return view('welcome');
+    return "esto es una prueba";
+});
+
+Route::resource('/datos', DatosController::class);
