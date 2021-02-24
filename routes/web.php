@@ -24,4 +24,8 @@ Route::get('/probando', function () {
     return "esto es una prueba";
 });
 
+Route::get('/formulario', function () {
+    return view('base');
+});
+
 Route::resource('/datos', DatosController::class);
