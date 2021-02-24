@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DatosController;
+use App\Http\Controllers\TutoresController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
 Route::get('/', function () {
     //return view('welcome');
     return "Hola mundo";
 });
 
-Route::get('/probando', function () {
-    //return view('welcome');
-    return "esto es una prueba";
-});
+Route::resource('tutores','App\Http\Controllers\TutoresController');
 
 Route::get('/formulario', function () {
     return view('base');

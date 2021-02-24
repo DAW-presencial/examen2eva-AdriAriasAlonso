@@ -17,3 +17,21 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
+Route::get('/', function () {
+    //return view('welcome');
+    return "Hola mundo";
+});
+
+Route::resource('tutores' , 'App\Http\Controllers\TutoresController');
+
+Route::get('/formulario', function () {
+    return view('base');
+});
+
+Route::resource('/datos', DatosController::class);
